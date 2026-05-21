@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="headerButton">
+            <img src="assets/home.png" alt="" class="headerIcon"> Home
+        </a>
+        <a href="wiki.html" class="headerButton">
+            <img src="assets/book.png" alt="" class="headerIcon"> Wiki
+        </a>
+        <a href="about.html" class="headerButton">
+            <img src="assets/info.png" alt="" class="headerIcon"> About
+        </a>
+        <a href="contact.html" class="headerButton">
+            <img src="assets/phone.png" alt="" class="headerIcon"> Contact
+        </a>
+    </header>
+    <div class="contact">
+        <div class="name">Contact Us <img class="phoneIcon" src="assets/phone.png" alt=""></div>
+        <div class="contact-label">by phone: +32321321321</div>
+        <div class="contact-label">in telegram: <a href="https://t.me/borovvv" class="nick">@borovvv</a></div>
+        <div class="contact-text">
+            <div class="contact-area">or right here</div>
+            <textarea name="" id="text"></textarea>
+            <div class="sendButton" id="sendButton" onclick="
+            let btn = document.getElementById('sendButton');
+            let area = document.getElementById('text');
+            let text = area.value;
+            let error = 'Fill this area!';
+            if (!btn.classList.contains('success')) {
+                if(text && text != error) {
+                   btn.classList.remove('fail');
+                   btn.classList.add('success');
+                   console.log(text);   
+                } else {
+                    btn.classList.toggle('fail');
+                    if (text != error) {
+                        let i = 0;
+                        function typewriterAnim () {
+                            if (i < error.length) {
+                                area.value = area.value + error[i];
+                                i++;
+                                setTimeout(typewriterAnim, 10);
+                            }
+                        }
+
+                        typewriterAnim();
+                    }
+                }
+            }
+            ">send <img class="sendIcon" src="assets/send.png" alt=""></div>
+        </div>
+    </div>
+</body>
+
+</html>
